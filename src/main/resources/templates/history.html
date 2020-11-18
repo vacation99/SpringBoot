@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Main</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table border="1">
+    <caption>История</caption>
+    <tr>
+        <th>Исходная валюта</th>
+        <th>Целевая валюта</th>
+        <th>Исходная сумма</th>
+        <th>Получаемая сумма</th>
+    </tr>
+    <tr th:each="el : ${model}"><td th:text="${el.charCode1}"/><td th:text="${el.charCode2}"/><td th:text="${el.oldSum}"/><td th:text="${el.newSum}"/></tr>
+</table>
+
+<a href="/main">Вернуться в ковертор</a>
+<a href="/clearHistory">Отчистить историю</a>
+
+<div>
+    <form th:method="post" th:action="@{/logout}">
+        <input type="submit" value="Выйти">
+    </form>
+</div>
+</body>
+</html>
